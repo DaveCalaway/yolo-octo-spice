@@ -7,7 +7,7 @@
   #define maestroSerial SERIAL_PORT_HARDWARE_OPEN
 #else
   #include <SoftwareSerial.h>
-  SoftwareSerial maestroSerial(10, 11);
+  SoftwareSerial maestroSerial(10, 11); //11 ricezione non necessaria qui
 #endif
 
 MicroMaestro maestro(maestroSerial);
