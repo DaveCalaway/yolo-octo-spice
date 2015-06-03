@@ -1,3 +1,8 @@
+/* Il programma collega un terminale Bluetooth al modulo Maestro per comandare i motori del Me Arm.
+Alla pressione del tasto 'a' comunica un avviso del progetto. 
+Alla pressione d'un numero da 1 a 3 seleziona uno dei tre motori.
+Nel caso non venga selezionato un altro motore, con 'j' e 'l' si incrementa/decrementa lo stato del Servo.
+*/
 // RX arduino --> TX HC-06
 // TX arduino --> RX HC-06 con voltage divider
 
@@ -18,7 +23,7 @@ int passi=4000;
 
 void setup() {
     Serial.begin(9600); // Default connection rate for my BT module
-    maestroSerial.begin(9600);
+    maestroSerial.begin(9600);  // Default connection rate for Maestro module
 }
 
 void loop() {
@@ -42,7 +47,7 @@ void loop() {
     }
 }
 
-
+// Conversione in pulsazioni per servo
 void Me_Arm(int motor,char target){
     if( target == 'j' )
         passi=passi+200;
@@ -53,8 +58,8 @@ void Me_Arm(int motor,char target){
       maestro.setTarget(motor, target);
       delay(1000);
     }
-    if(passi < 4000)
+    if(passi < 4000)  // fine corsa minimo
       passi=400;
-    if(passi > 8000)
+    if(passi > 8000)  // fine corsa massimo
       passi=8000;
 }
