@@ -53,7 +53,7 @@ void loop() {
 }
 
 // Conversione in pulsazioni per servo
-void Me_Arm(int motor,char target){
+void Me_Arm(int motor,int target){
     Serial.println(state);
     if( target == 'j' )
         passi=passi+200;
