@@ -6,6 +6,7 @@ Nel caso non venga selezionato un altro motore, con 'j' e 'l' si incrementa/decr
 // RX arduino --> TX HC-06
 // TX arduino --> RX HC-06 con voltage divider
 
+
 #include <PololuMaestro.h>
 
 #ifdef SERIAL_PORT_HARDWARE_OPEN
@@ -16,10 +17,10 @@ Nel caso non venga selezionato un altro motore, con 'j' e 'l' si incrementa/decr
 #endif
 
 MicroMaestro maestro(maestroSerial);
-char state=0;
-char pos=0;
-//int passi=4000;
-int motor=1;
+
+int state=0;
+int pos=0;
+int motor=0;
 int passi=4000;
 
 
@@ -37,10 +38,13 @@ void loop() {
       if (state == 'a') 
         Serial.println("Benveuto nel programma di prova MeArm del FabLab di Modena\n");
       
-      if(state =='1' || state == '2' || state == '3'){
-          Serial.println("Hai selezionato il motore");
-	  state=motor;
+      if(state =='0' || state == '1' || state == '2'){
+          state=motor;
+          Serial.print("Hai selezionato il motore:");
+          Serial.println(state);  // stampa sempre e solo 0 !
+          //Serial.println(motor);
 	}
+      
       if(state == 'j' || state == 'l'){
           Serial.println(state);
           Me_Arm(motor,state);
@@ -50,7 +54,7 @@ void loop() {
 
 // Conversione in pulsazioni per servo
 void Me_Arm(int motor,char target){
-    
+    Serial.println(state);
     if( target == 'j' )
         passi=passi+200;
     else 
@@ -62,7 +66,7 @@ void Me_Arm(int motor,char target){
     }
     if(passi < 4000){  // fine corsa minimo
       Serial.println("Fine corsa");
-      passi=400;
+      passi=4000;
     }
     if(passi > 8000){  // fine corsa massimo
       Serial.println("Fine corsa");
