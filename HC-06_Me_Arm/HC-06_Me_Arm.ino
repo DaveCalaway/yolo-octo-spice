@@ -18,7 +18,7 @@ Nel caso non venga selezionato un altro motore, con 'j' e 'l' si incrementa/decr
 
 MicroMaestro maestro(maestroSerial);
 
-int state=0;
+int state;
 int pos=0;
 int motor=0;
 int passi=4000;
@@ -39,11 +39,11 @@ void loop() {
         Serial.println("Benveuto nel programma di prova MeArm del FabLab di Modena\n");
       
       if(state =='0' || state == '1' || state == '2'){
-          state=motor;
-          Serial.print("Hai selezionato il motore:");
+          //Serial.print("Hai selezionato il motore:");
           Serial.println(state);  // stampa sempre e solo 0 !
+          state=motor;
           //Serial.println(motor);
-	}
+      }
       
       if(state == 'j' || state == 'l'){
           Serial.println(state);
@@ -54,7 +54,8 @@ void loop() {
 
 // Conversione in pulsazioni per servo
 void Me_Arm(int motor,int target){
-    Serial.println(state);
+    //Serial.println(target);
+    Serial.println(motor);
     if( target == 'j' )
         passi=passi+200;
     else 
