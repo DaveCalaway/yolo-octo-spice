@@ -13,7 +13,7 @@ Nel caso non venga selezionato un altro motore, con 'j' e 'l' si incrementa/decr
   #define maestroSerial SERIAL_PORT_HARDWARE_OPEN
 #else
   #include <SoftwareSerial.h>
-  SoftwareSerial mySerial(7,6);//RX, TX rivece da BT
+  SoftwareSerial mySerial(6,7);//RX, TX rivece da BT
   SoftwareSerial maestroSerial(10, 11); //maestro's communication ports 
 #endif
 
@@ -25,8 +25,8 @@ int passi=4000;
 
 
 void setup() {
-    mySerial.begin(9600); // Default connection rate for my BT module
     maestroSerial.begin(9600);  // Default connection rate for Maestro module
+    mySerial.begin(19200); // Default connection rate for my BT module    
 }
 
 void loop() {
