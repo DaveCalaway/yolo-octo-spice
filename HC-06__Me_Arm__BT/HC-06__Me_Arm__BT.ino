@@ -22,7 +22,9 @@ MicroMaestro maestro(maestroSerial);
 char state=0;
 int motor=0;
 int passi=4000;
-int stateold=0;
+int passi0=0;
+int passi1=0;
+int passi2=0;
 
 
 void setup() {
@@ -39,33 +41,40 @@ void loop() {
       if (state == 'a') 
         mySerial.println("Benveuto nel programma di prova MeArm del FabLab di Modena\n");
       
-      if(state =='0' || state == '1' || state == '2'){
+      //if(state =='0' || state == '1' || state == '2'){
                 
-          mySerial.print("Hai selezionato il motore:");
-          mySerial.println(state);
-          motor=state;
+          
  //ricordo vecchia posizione
-          if(motor =! motorold){
-             if(state == '0' ){
-                int motor0=motor;
-                int passi0=passi;
-             }
-             if(state == '1' ){
-                int motor1=motor;
-                int passi1=passi;
-             }
-             if(state == '2' ){
-                int motor2=motor;
-                int passi2=passi;
-             }
-          }
+         // if(motor =! motorold){
+           
+         if(state == '0' ){
+             if(motor == state)  // il motor precedente era questo?
+                passi0=passi;
+             else
+                passi=passi0;
+         }
+         if(state == '1' ){
+             if(motor == state)  // il motor precedente era questo?
+                passi1=passi;
+             else
+                passi=passi1;
+         }
+         if(state == '2' ){
+             if(motor == state)  // il motor precedente era questo?
+                passi2=passi;
+             else
+                passi=passi2;
+         }
+         mySerial.print("Hai selezionato il motore:");
+         mySerial.println(state);
+         motor=state;
+        // }
       }
       
       if(state == 'j' || state == 'l'){
           mySerial.println(state);
           Me_Arm(motor,state);
        }  
-    }
 }
 
 

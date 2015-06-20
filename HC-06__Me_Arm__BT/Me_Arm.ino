@@ -1,7 +1,7 @@
 // Conversione in pulsazioni per servo
 
 void Me_Arm(int motor,int target){
-    stateold=target;
+    //stateold=target;
     
     if( target == 'j' )
         passi=passi+400;
