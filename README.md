@@ -1,5 +1,4 @@
 # yolo-octo-spice
-Progetto MeArm & MAestro per il controllo d'un braccio robotico.
-Il progetto è sotto il FabLab di Modena, Italy.
+Progetto MeArm & Maestro controller per il controllo d'un braccio robotico.
 
-Supervisionatore, DaveCalaway.
+DaveCalaway.
