@@ -9,12 +9,18 @@ void Me_Arm(int motor,int target){
     Serial.println((motor-48));
     Serial.println(passi);
       
-    if( (passi > 4000) && (passi < 8000) ){
-      Serial.println(motor);
-      Serial.println(passi);
+    if( (passi >= 4000) && (passi <= 8000) ){
       maestro.setTarget( (motor-48), passi);
-      delay(1000);
+      
+      // visualizza posizione instantanea 
+      Serial.print("motore 0: ");
+      Serial.println(passi0);
+      Serial.print("motore 1: ");
+      Serial.println(passi1);
+      Serial.print("motore 2: ");
+      Serial.println(passi2);
     }
+    
     if(passi < 4000){  // fine corsa minimo
       Serial.println("Fine corsa");
       passi=4000;
