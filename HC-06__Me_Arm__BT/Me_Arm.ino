@@ -6,10 +6,11 @@ void Me_Arm(int motor,int target){
         passi=passi+400;
     else 
         passi=passi-400;
-    mySerial.println(passi);
+    //mySerial.println(passi);
       
     if( (passi >= 4000) && (passi <= 8000) ){
       maestro.setTarget( (motor-48), passi);
+      
       // visualizza posizione instantanea 
       mySerial.print("motore 0: ");
       mySerial.println(passi0);
@@ -17,8 +18,8 @@ void Me_Arm(int motor,int target){
       mySerial.println(passi1);
       mySerial.print("motore 2: ");
       mySerial.println(passi2);
-      
     }
+    
     if(passi < 4000){  // fine corsa minimo
       mySerial.println("Fine corsa");
       passi=4000;

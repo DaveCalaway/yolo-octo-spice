@@ -1,6 +1,6 @@
 /* Il programma collega un terminale Bluetooth al modulo Maestro per comandare i motori del Me Arm.
 Alla pressione del tasto 'a' comunica un avviso del progetto. 
-Alla pressione d'un numero da 1 a 3 seleziona uno dei tre motori.
+Alla pressione d'un numero da 0 a 2 seleziona uno dei tre motori.
 Nel caso non venga selezionato un altro motore, con 'j' e 'l' si incrementa/decrementa lo stato del Servo.
 */
 // RX arduino --> TX HC-06
@@ -41,7 +41,7 @@ void loop() {
       state = mySerial.read();      
       
       if (state == 'a') 
-        mySerial.println("Benveuto nel programma di prova MeArm del FabLab di Modena\n");
+        mySerial.println("Benveuto nel programma di prova MeArm Bluetooth\n");
       
       if(state == '0' || state == '1' || state == '2' ){    
         
@@ -71,7 +71,6 @@ void loop() {
               passi1=passi;
           if(motor=='2')
               passi2=passi;
-          
       }  
   }//serial.available
 }
