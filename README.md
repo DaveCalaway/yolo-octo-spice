@@ -1,12 +1,8 @@
 # yolo-octo-spice
-<<<<<<< HEAD
+
 Progetto MeArm & Maestro controller per il controllo d'un braccio robotico.
 
 Ogni cartella contiene un file fritzing come schematico di montaggio ed il codice commentato.
-
-Engineer DaveCalaway.
-=======
-Progetto MeArm & MAestro per il controllo d'un braccio robotico.
 
 Indice:
 - HC-06_Me_Arm_BT prevede il controllo tramite un modulo bluetooth HC-06.
@@ -15,5 +11,5 @@ Indice:
 
 Link alla guida: http://goo.gl/ghZbwc   sezione "braccio robotico"
 		
-DaveCalaway.
->>>>>>> test_Me_Arm
+Engineer DaveCalaway.
+
