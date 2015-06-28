@@ -25,6 +25,8 @@ int passi1=5500;
 int passi2=5500;
 int oldm=0;
 
+int passo=400; //precisione minima del passo 
+
 MicroMaestro maestro(maestroSerial);
 
 

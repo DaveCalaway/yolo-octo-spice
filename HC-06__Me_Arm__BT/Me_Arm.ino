@@ -3,9 +3,9 @@
 void Me_Arm(int motor,int target){
 
     if( target == 'j' )
-        passi=passi+400;
+        passi=passi+passo;
     else 
-        passi=passi-400;
+        passi=passi-passo;
     //mySerial.println(passi);
       
     if( (passi >= 4000) && (passi <= 8000) ){
