@@ -9,7 +9,7 @@ Indice:
 - Me_Arm_USB prevede il controllo tramite seriale.
 - test_3motori primo esempio d'utilizzo di più motori, accellerazioni e velocità, da parte del modulo Maestro.
 
-Link alla guida: http://goo.gl/ghZbwc   sezione "braccio robotico"
+*Link alla guida:* http://goo.gl/mbzKaC
 		
-Engineer DaveCalaway.
+*Engineer DaveCalaway.*
 
